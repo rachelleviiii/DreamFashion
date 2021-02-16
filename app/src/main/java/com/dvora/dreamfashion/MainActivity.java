@@ -3,6 +3,8 @@ package com.dvora.dreamfashion;
 import android.os.Bundle;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
@@ -33,8 +35,15 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+        DatabaseReference myRef = FirebaseDatabase.getInstance().getReference();
+
+        User user=new User("Daniel","daniel@gmail.com");
 
 
+        User user2=new User("Dvora","dvora@gmail.com");
+
+        myRef.child("users_list").push().setValue(user);
+        myRef.child("users_list").push().setValue(user2);
 
 
 
