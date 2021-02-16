@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">DreamFashion</string>
+
+    <string name="title_home">בית</string>
+    <string name="title_dashboard">לוח שעונים</string>
+    <string name="title_notifications">התראות</string>
+    <string name="home">בית</string>
+</resources>
