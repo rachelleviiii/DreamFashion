@@ -28,6 +28,20 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+        String  test="new test";
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
 
 }
