@@ -1,4 +1,4 @@
-package com.dvora.dreamfashion;
+package com.dvora.dreamfashion.entities;
 
 public class User {
     private String name;

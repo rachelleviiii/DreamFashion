@@ -1,8 +1,11 @@
-package com.dvora.dreamfashion;
+package com.dvora.dreamfashion.activities;
 
 import android.os.Bundle;
 import android.widget.Toast;
 
+import com.dvora.dreamfashion.R;
+import com.dvora.dreamfashion.storage.SharePreferenceHelper;
+import com.dvora.dreamfashion.entities.User;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;

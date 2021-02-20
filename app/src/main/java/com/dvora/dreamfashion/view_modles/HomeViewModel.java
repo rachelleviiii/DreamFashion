@@ -1,4 +1,4 @@
-package com.dvora.dreamfashion.ui.home;
+package com.dvora.dreamfashion.view_modles;
 
 import android.app.Application;
 

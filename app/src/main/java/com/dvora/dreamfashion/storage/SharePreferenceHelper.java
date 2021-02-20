@@ -1,4 +1,4 @@
-package com.dvora.dreamfashion;
+package com.dvora.dreamfashion.storage;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -25,5 +25,10 @@ public class SharePreferenceHelper {
 
     public String getMyUID(){
         return sharedPreferences.getString(MY_UID,null);
+    }
+
+
+    public void resetSP(){
+        sharedPreferences.edit().clear().apply();
     }
 }

@@ -1,4 +1,4 @@
-package com.dvora.dreamfashion.ui.home;
+package com.dvora.dreamfashion.fragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -13,6 +13,7 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.dvora.dreamfashion.R;
+import com.dvora.dreamfashion.view_modles.HomeViewModel;
 
 public class HomeFragment extends Fragment {
 
