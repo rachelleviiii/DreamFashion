@@ -34,6 +34,35 @@
           ]
         }
       }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:681439786470:android:34fae6379aac6008915227",
+        "android_client_info": {
+          "package_name": "com.dvora.myapplicationn"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "681439786470-90kgnoa0kscrvuafgtok0ne8f4ohn46s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDB-TCYLi1mN2PbzP8dgCm5bl-WqwzNP6g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "681439786470-90kgnoa0kscrvuafgtok0ne8f4ohn46s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
     }
   ],
   "configuration_version": "1"

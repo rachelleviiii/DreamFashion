@@ -7,19 +7,19 @@
 
     <fragment
         android:id="@+id/navigation_welcome"
-        android:name="com.dvora.dreamfashion.fragments.register_login.WelcomeFragment"
+        android:name="com.dvora.myapplicationn.fragments.register_login.WelcomeFragment"
         android:label="@string/welcome"
         tools:layout="@layout/fragment_welcome" />
 
     <fragment
         android:id="@+id/navigation_login"
-        android:name="com.dvora.dreamfashion.fragments.register_login.LoginFragment"
+        android:name="com.dvora.myapplicationn.fragments.register_login.LoginFragment"
         android:label="@string/login"
         tools:layout="@layout/fragment_login" />
 
     <fragment
         android:id="@+id/navigation_register"
-        android:name="com.dvora.dreamfashion.fragments.register_login.RegisterFragment"
+        android:name="com.dvora.myapplicationn.fragments.register_login.RegisterFragment"
         android:label="@string/register"
         tools:layout="@layout/fragment_register" />
 </navigation>
