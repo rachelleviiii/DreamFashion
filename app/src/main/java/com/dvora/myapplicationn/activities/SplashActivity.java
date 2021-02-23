@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.os.Handler;
 
 import com.dvora.myapplicationn.R;
+import com.dvora.myapplicationn.reposetories.Reposetory;
 import com.dvora.myapplicationn.storage.SharePreferenceHelper;
 
 public class SplashActivity extends AppCompatActivity {
@@ -26,13 +27,14 @@ public class SplashActivity extends AppCompatActivity {
             @Override
             public void run() {
                 Intent intent;
-                if (SharePreferenceHelper.getInstance(SplashActivity.this).getMyUID()==null){
+                if (Reposetory.getInstance(SplashActivity.this).getMyUID() ==null){
                     intent= new Intent(SplashActivity.this, RegisterLoginActivity.class);
                 }
                 else {
                     intent = new Intent(SplashActivity.this, MainActivity.class);
                 }
                 startActivity(intent);
+                finish();
             }
         }, 3000);
     }

@@ -6,24 +6,34 @@
     tools:context=".fragments.register_login.RegisterFragment">
 
     <EditText
+        android:id="@+id/edtName"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:layout_above="@+id/edtEmail"
+        android:layout_marginBottom="20dp"
+        android:layout_centerHorizontal="true"
+        android:hint="Name"
+        android:textColor="@android:color/black" />
+
+    <EditText
         android:id="@+id/edtEmail"
         android:layout_width="250dp"
-        android:textColor="@android:color/black"
         android:layout_height="50dp"
         android:layout_centerInParent="true"
         android:layout_centerHorizontal="true"
-        android:hint="Email" />
+        android:hint="Email"
+        android:textColor="@android:color/black" />
 
 
     <EditText
-        android:textColor="@android:color/black"
-        android:layout_marginBottom="50dp"
         android:id="@+id/edtPass"
         android:layout_width="250dp"
         android:layout_height="50dp"
         android:layout_below="@+id/edtEmail"
         android:layout_centerInParent="true"
-        android:hint="Pass" />
+        android:layout_marginTop="20dp"
+        android:hint="Pass"
+        android:textColor="@android:color/black" />
 
 
     <Button

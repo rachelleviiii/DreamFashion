@@ -1,19 +1,11 @@
 package com.dvora.myapplicationn.activities;
 
 import android.os.Bundle;
-import android.util.Log;
-import android.widget.Toast;
 
 import com.dvora.myapplicationn.R;
-import com.dvora.myapplicationn.storage.SharePreferenceHelper;
-import com.dvora.myapplicationn.entities.User;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.MutableLiveData;
-import androidx.lifecycle.Observer;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -29,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications)
+                R.id.navigation_home, R.id.navigation_profile, R.id.navigation_notifications)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
@@ -38,23 +30,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        String test = "new test";
 
-
-        DatabaseReference myRef = FirebaseDatabase.getInstance().getReference();
-
-        User user = new User("Daniel", "daniel@gmail.com");
-
-
-        User user2 = new User("Dvora", "dvora@gmail.com");
-
-        myRef.child("users_list").push().setValue(user);
-        myRef.child("users_list").push().setValue(user2);
-
-
-        String myUID = SharePreferenceHelper.getInstance(this).getMyUID();
-
-        Toast.makeText(this, myUID, Toast.LENGTH_SHORT).show();
 
     }
 

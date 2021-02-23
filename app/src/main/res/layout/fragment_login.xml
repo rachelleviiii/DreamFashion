@@ -1,13 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".fragments.register_login.LoginFragment">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Hello" />
 
-</FrameLayout>
+    <EditText
+        android:textSize="15sp"
+        android:gravity="center"
+        android:layout_centerInParent="true"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:hint="Enter email"
+        android:inputType="textEmailAddress"
+        android:singleLine="true"
+        android:id="@+id/edtEmail"/>
+
+    <EditText
+        android:textSize="15sp"
+        android:gravity="center"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/edtEmail"
+        android:layout_centerHorizontal="true"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:hint="Enter pass"
+        android:inputType="textPassword"
+        android:singleLine="true"
+        android:id="@+id/edtPass"/>
+
+
+    <Button
+        android:layout_marginBottom="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnLogin"
+        android:text="Login"/>
+
+</RelativeLayout>

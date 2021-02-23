@@ -15,7 +15,7 @@ import androidx.lifecycle.ViewModelProvider;
 import com.dvora.myapplicationn.R;
 import com.dvora.myapplicationn.view_modles.DashboardViewModel;
 
-public class DashboardFragment extends Fragment {
+public class ProfileFragment extends Fragment {
 
     private DashboardViewModel dashboardViewModel;
 
@@ -23,7 +23,7 @@ public class DashboardFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
         dashboardViewModel =
                 new ViewModelProvider(this).get(DashboardViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_dashboard, container, false);
+        View root = inflater.inflate(R.layout.fragment_profile, container, false);
         final TextView textView = root.findViewById(R.id.text_dashboard);
         dashboardViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
