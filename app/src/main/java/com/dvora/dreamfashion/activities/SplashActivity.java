@@ -17,7 +17,6 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
-
         showScreen();
     }
 
@@ -26,7 +25,6 @@ public class SplashActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                //TODO check witch screen to present
                 Intent intent;
                 if (SharePreferenceHelper.getInstance(SplashActivity.this).getMyUID()==null){
                     intent= new Intent(SplashActivity.this, RegisterLoginActivity.class);

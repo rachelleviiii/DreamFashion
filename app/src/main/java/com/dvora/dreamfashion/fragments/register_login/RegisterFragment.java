@@ -1,5 +1,6 @@
 package com.dvora.dreamfashion.fragments.register_login;
 
+import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
@@ -9,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -51,8 +53,7 @@ public class RegisterFragment extends Fragment {
                 if (aBoolean) {
                     SharePreferenceHelper.getInstance(getContext()).storeUID(mViewModel.getEmailAddress());
                     Toast.makeText(getContext(), "Register!", Toast.LENGTH_SHORT).show();
-                }
-                else
+                } else
                     Toast.makeText(getContext(), "Error", Toast.LENGTH_SHORT).show();
             }
         });
@@ -72,10 +73,12 @@ public class RegisterFragment extends Fragment {
             public void onClick(View v) {
                 String email = edtEmail.getText().toString();
                 String pass = edtPass.getText().toString();
+
                 mViewModel.setEmailAddress(email);
                 mViewModel.createNewUser(email, pass);
             }
         });
+
 
     }
 
