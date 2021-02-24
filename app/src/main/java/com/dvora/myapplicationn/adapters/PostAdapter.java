@@ -62,6 +62,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostAdapterVie
         SimpleDateFormat simpleFormatter = new SimpleDateFormat("yyyyMMdd HH:mm:ss");
         String timeFormat = simpleFormatter.format(new Date(post.getTimestamp()));
         holder.txtTimePosted.setText(timeFormat);
+        holder.txtTimePosted.setVisibility(View.GONE);
 
         Reposetory.getInstance(context).getImage(post.getImageUrl(), new IImageDownload() {
             @Override
