@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 public class SharePreferenceHelper {
     private final String MY_UID="MY_UID";
     private final String MY_USER_NAME="MY_USER_NAME";
+    private final String LAST_TIMESTAMP_READ_POST="LAST_TIMESTAMP_READ_POST";
     private static SharePreferenceHelper instance;
     private final SharedPreferences sharedPreferences;
 
@@ -40,5 +41,12 @@ public class SharePreferenceHelper {
 
     public void storeUserName(String name) {
         sharedPreferences.edit().putString(MY_USER_NAME,name).apply();
+    }
+
+    public long getLastTimestampUpdatedPost() {
+        return sharedPreferences.getLong(LAST_TIMESTAMP_READ_POST,0);
+    }
+    public void setLastTimestampUpdatedPost(long timestamp) {
+        sharedPreferences.edit().putLong(LAST_TIMESTAMP_READ_POST,timestamp).apply();
     }
 }

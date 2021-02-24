@@ -7,12 +7,27 @@ public class Post {
     private String imageUrl;
     private long timestamp;
 
-    public Post(String userId, String postKey, String title, String imageUrl, long timestamp) {
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
         this.userId = userId;
+    }
+
+    public String getPostKey() {
+        return postKey;
+    }
+
+    public void setPostKey(String postKey) {
         this.postKey = postKey;
-        this.title = title;
-        this.imageUrl = imageUrl;
+    }
+
+    public Post(String userId, String title, long timestamp) {
+        this.userId = userId;
+         this.title = title;
         this.timestamp = timestamp;
+        setImageUrl(userId+"_"+timestamp+".jpg");
     }
 
     public Post(){ }

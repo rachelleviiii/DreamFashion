@@ -1,10 +1,12 @@
 <resources>
     <string name="app_name">DreamFashion</string>
     <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_profile">Profile</string>
+    <string name="title_favorite">Favorite</string>
     <string name="home">Home</string>
     <string name="register">Register</string>
     <string name="login">Login</string>
     <string name="welcome">Welcome</string>
+    <string name="title_add_photo">Add photo</string>
+    <string name="create_post">Add post</string>
 </resources>

@@ -13,19 +13,19 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.dvora.myapplicationn.R;
-import com.dvora.myapplicationn.view_modles.NotificationsViewModel;
+import com.dvora.myapplicationn.view_modles.FavoriteViewModel;
 
-public class NotificationsFragment extends Fragment {
+public class FavoriteFragment extends Fragment {
 
-    private NotificationsViewModel notificationsViewModel;
+    private FavoriteViewModel favoriteViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        notificationsViewModel =
-                new ViewModelProvider(this).get(NotificationsViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_notifications, container, false);
+        favoriteViewModel =
+                new ViewModelProvider(this).get(FavoriteViewModel.class);
+        View root = inflater.inflate(R.layout.fragment_favorite, container, false);
         final TextView textView = root.findViewById(R.id.text_notifications);
-        notificationsViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+        favoriteViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);
