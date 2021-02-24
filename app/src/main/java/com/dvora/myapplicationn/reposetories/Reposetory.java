@@ -224,4 +224,8 @@ public class Reposetory {
         postDao.delete(post.getPostKey());
         favoriteDao.delete(post.getPostKey());
     }
+
+    public String getUserName() {
+        return preferenceHelper.getUserName();
+    }
 }

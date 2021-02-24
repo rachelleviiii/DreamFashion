@@ -60,6 +60,7 @@ public class CreatePostFragment extends BaseFragment {
         mViewModel = new ViewModelProvider(this).get(CreatePostViewModel.class);
         // TODO: Use the ViewModel
 
+        loadName();
         Bundle bundle = getArguments();
         if (bundle != null) {
             mViewModel.initPost(bundle);
@@ -72,6 +73,11 @@ public class CreatePostFragment extends BaseFragment {
             btnShare.setText("Share");
         }
         btnDelete.setVisibility(mViewModel.getPost() != null ? View.VISIBLE : View.GONE);
+    }
+
+    private void loadName() {
+        txtName.setText(mViewModel.getUserName(getContext()));
+
     }
 
     @Override
@@ -153,6 +159,8 @@ public class CreatePostFragment extends BaseFragment {
             } else {
                 getImageFromGallery();
             }
+        }else{
+            getImageFromGallery();
         }
     }
 
@@ -199,14 +207,11 @@ public class CreatePostFragment extends BaseFragment {
     }
 
     private void loadViews(View view) {
-
-
         btnDelete = view.findViewById(R.id.btnDelete);
         txtName = view.findViewById(R.id.txtName);
         imagePost = view.findViewById(R.id.imageViewPost);
         edtTitle = view.findViewById(R.id.edtTitle);
         btnShare = view.findViewById(R.id.btnShare);
-
 
     }
 

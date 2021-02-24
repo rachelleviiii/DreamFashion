@@ -42,7 +42,7 @@ public class ProfileFragment extends BaseFragment implements ICallbackAdapter {
 
     private void loadObserverNewPost() {
 
-        if (profileViewModel == null)
+        if (profileViewModel == null||getContext()==null)
             return;
         profileViewModel.getAllMyPostLiveData(getContext()).observe(getViewLifecycleOwner(), new Observer<List<Post>>() {
             @Override

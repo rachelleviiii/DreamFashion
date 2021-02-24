@@ -44,5 +44,10 @@ public class CreatePostViewModel extends ViewModel {
     public void deletePost(Context context) {
         Reposetory.getInstance(context).deletePost(post);
     }
+
+    public String getUserName(Context  context) {
+        return Reposetory.getInstance(context).getUserName();
+
+    }
     // TODO: Implement the ViewModel
 }

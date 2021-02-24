@@ -40,7 +40,7 @@ public class FavoriteFragment extends Fragment {
 
     private void loadObserverNewPost() {
 
-        if (favoriteViewModel == null)
+        if (favoriteViewModel == null ||getContext()==null)
             return;
         favoriteViewModel.getAllFavoritePostLiveData(getContext()).observe(getViewLifecycleOwner(), new Observer<List<FavoritePost>>() {
             @Override
