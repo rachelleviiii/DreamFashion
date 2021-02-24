@@ -36,7 +36,8 @@ public class HomeFragment extends Fragment {
     }
 
     private void loadObserverNewPost() {
-
+        if (homeViewModel == null)
+            return;
         homeViewModel.getAllPostLiveData().observe(getViewLifecycleOwner(), new Observer<List<Post>>() {
             @Override
             public void onChanged(List<Post> posts) {

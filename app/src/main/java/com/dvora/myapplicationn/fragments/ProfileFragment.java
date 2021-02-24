@@ -42,10 +42,12 @@ public class ProfileFragment extends BaseFragment implements ICallbackAdapter {
 
     private void loadObserverNewPost() {
 
+        if (profileViewModel == null)
+            return;
         profileViewModel.getAllMyPostLiveData(getContext()).observe(getViewLifecycleOwner(), new Observer<List<Post>>() {
             @Override
             public void onChanged(List<Post> posts) {
-                PostAdapter postAdapter=new PostAdapter(getContext(),posts,true,ProfileFragment.this);
+                PostAdapter postAdapter = new PostAdapter(getContext(), posts, true, ProfileFragment.this);
                 recyclerViewPost.setAdapter(postAdapter);
             }
         });
@@ -64,19 +66,19 @@ public class ProfileFragment extends BaseFragment implements ICallbackAdapter {
                 loadObserverNewPost();
 
             }
-        },1000);
+        }, 1000);
     }
 
     private void loadViews(View view) {
-        recyclerViewPost= view.findViewById(R.id.recyclerViewPost);
+        recyclerViewPost = view.findViewById(R.id.recyclerViewPost);
         recyclerViewPost.setHasFixedSize(true);
-        recyclerViewPost.setLayoutManager(new GridLayoutManager(getContext(),3));
+        recyclerViewPost.setLayoutManager(new GridLayoutManager(getContext(), 3));
     }
 
     @Override
     public void onItemClicked(Post post) {
-        Bundle bundle=new Bundle();
-        bundle.putSerializable("post",post);
-        mListener.showFragment(R.id.navigation_create_post,bundle);
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("post", post);
+        mListener.showFragment(R.id.navigation_create_post, bundle);
     }
 }
