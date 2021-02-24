@@ -3,13 +3,11 @@ package com.dvora.myapplicationn.activities;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 
 import com.dvora.myapplicationn.R;
 import com.dvora.myapplicationn.reposetories.Reposetory;
-import com.dvora.myapplicationn.storage.SharePreferenceHelper;
 
 public class SplashActivity extends AppCompatActivity {
 
@@ -18,6 +16,7 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
+//        Reposetory.getInstance(this).clearFavoriteList();
         showScreen();
     }
 

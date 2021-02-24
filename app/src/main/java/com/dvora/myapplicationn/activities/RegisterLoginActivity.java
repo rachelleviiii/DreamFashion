@@ -8,15 +8,12 @@ import androidx.navigation.ui.NavigationUI;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Toast;
 
 import com.dvora.myapplicationn.R;
-import com.dvora.myapplicationn.interfaces.CallBackFragment;
 
-public class RegisterLoginActivity extends AppCompatActivity implements CallBackFragment {
+public class RegisterLoginActivity extends BaseActivity {
 
-    private NavController navController;
-    @Override
+     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_login);
@@ -27,20 +24,5 @@ public class RegisterLoginActivity extends AppCompatActivity implements CallBack
     }
 
 
-    @Override
-    public void showActivity(Class activity) {
-        Intent intent=new Intent(RegisterLoginActivity.this,activity);
-        startActivity(intent);
-        finish();
-    }
 
-    @Override
-    public void showFragment(int fragmentID) {
-        navController.navigate(fragmentID);
-    }
-
-    @Override
-    public void showFragment(int fragmentID, Bundle bundle) {
-        navController.navigate(fragmentID,bundle);
-    }
 }

@@ -19,6 +19,7 @@ import android.widget.Toast;
 
 import com.dvora.myapplicationn.R;
 import com.dvora.myapplicationn.activities.MainActivity;
+import com.dvora.myapplicationn.fragments.BaseFragment;
 import com.dvora.myapplicationn.interfaces.CallBackFragment;
 import com.dvora.myapplicationn.reposetories.Reposetory;
 import com.dvora.myapplicationn.view_modles.LoginViewModel;
@@ -27,13 +28,12 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class LoginFragment extends Fragment {
+public class LoginFragment extends BaseFragment {
 
     private LoginViewModel mViewModel;
 
     private EditText edtPass,edtEmail;
     private Button btnLogin;
-    private CallBackFragment mListener;
 
     public static LoginFragment newInstance() {
         return new LoginFragment();
@@ -95,19 +95,4 @@ public class LoginFragment extends Fragment {
     }
 
 
-    @Override
-    public void onAttach(@NonNull Context context) {
-        super.onAttach(context);
-
-        if (context instanceof CallBackFragment){
-            mListener= (CallBackFragment) context;
-        }
-    }
-
-
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        mListener=null;
-    }
 }

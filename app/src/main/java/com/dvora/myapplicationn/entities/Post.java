@@ -4,12 +4,14 @@ import androidx.annotation.NonNull;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import java.io.Serializable;
+
 @Entity (tableName = "Feed")
-public class Post {
+public class Post implements Serializable {
     @NonNull
     @PrimaryKey
-    private String userId;
     private String postKey;
+    private String userId;
     private String title;
     private String imageUrl;
     private long timestamp;

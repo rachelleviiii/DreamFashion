@@ -19,18 +19,18 @@ import android.widget.Toast;
 
 import com.dvora.myapplicationn.R;
 import com.dvora.myapplicationn.activities.MainActivity;
+import com.dvora.myapplicationn.fragments.BaseFragment;
 import com.dvora.myapplicationn.interfaces.CallBackFragment;
 import com.dvora.myapplicationn.storage.SharePreferenceHelper;
 import com.dvora.myapplicationn.view_modles.RegisterViewModel;
 
-public class RegisterFragment extends Fragment {
+public class RegisterFragment extends BaseFragment {
 
     private RegisterViewModel mViewModel;
     private Button btnRegister;
     private EditText edtName;
     private EditText edtEmail;
     private EditText edtPass;
-    private CallBackFragment mListener;
 
     public static RegisterFragment newInstance() {
         return new RegisterFragment();
@@ -88,21 +88,7 @@ public class RegisterFragment extends Fragment {
 
 
     }
-    @Override
-    public void onAttach(@NonNull Context context) {
-        super.onAttach(context);
 
-        if (context instanceof CallBackFragment){
-            mListener= (CallBackFragment) context;
-        }
-    }
-
-
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        mListener=null;
-    }
     private void loadViews(View view) {
         btnRegister = view.findViewById(R.id.btnRegister);
         edtName = view.findViewById(R.id.edtName);

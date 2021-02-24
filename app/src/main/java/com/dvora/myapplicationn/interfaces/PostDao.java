@@ -22,10 +22,19 @@ public interface PostDao {
     @Query("Select * from Feed order by timestamp desc")
     LiveData <List <Post>> getAllPostsLiveData();
 
+    @Query("Select * from Feed where userId = :myUID order by timestamp desc")
+    LiveData <List <Post>> getAllMyPostsLiveData(String myUID);
+
+    @Query("Select * from Feed where postKey = :key")
+    Post getPostByKey(String key);
+
+
     @Query("Select * from Feed order by timestamp desc limit :limit")
     LiveData <List <Post>> getAllPostsLiveData(int limit);
 
     @Query("Update Feed set title = :title, imageUrl = :url, timestamp = :time ")
     void updatePost(String title,String url,long time);
 
+    @Query("Delete from Feed")
+    void deleteAll();
 }

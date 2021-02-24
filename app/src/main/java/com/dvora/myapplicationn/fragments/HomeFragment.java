@@ -1,6 +1,7 @@
 package com.dvora.myapplicationn.fragments;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,9 +12,11 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.dvora.myapplicationn.R;
+import com.dvora.myapplicationn.adapters.PostAdapter;
 import com.dvora.myapplicationn.entities.Post;
 import com.dvora.myapplicationn.view_modles.HomeViewModel;
 
@@ -29,7 +32,6 @@ public class HomeFragment extends Fragment {
         homeViewModel =
                 new ViewModelProvider(this).get(HomeViewModel.class);
         View root = inflater.inflate(R.layout.fragment_home, container, false);
-        loadObserverNewPost();
         return root;
     }
 
@@ -38,7 +40,8 @@ public class HomeFragment extends Fragment {
         homeViewModel.getAllPostLiveData().observe(getViewLifecycleOwner(), new Observer<List<Post>>() {
             @Override
             public void onChanged(List<Post> posts) {
-
+                PostAdapter  postAdapter=new PostAdapter(getContext(),posts,false);
+                recyclerViewPost.setAdapter(postAdapter);
             }
         });
     }
@@ -49,9 +52,19 @@ public class HomeFragment extends Fragment {
 
 
         loadViews(view);
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                loadObserverNewPost();
+
+            }
+        },1000);
     }
 
     private void loadViews(View view) {
         recyclerViewPost= view.findViewById(R.id.recyclerViewPost);
+        recyclerViewPost.setHasFixedSize(true);
+        recyclerViewPost.setLayoutManager(new LinearLayoutManager(getContext()));
     }
 }

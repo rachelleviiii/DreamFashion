@@ -16,13 +16,13 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.dvora.myapplicationn.R;
+import com.dvora.myapplicationn.fragments.BaseFragment;
 import com.dvora.myapplicationn.interfaces.CallBackFragment;
 import com.dvora.myapplicationn.view_modles.WellcomeViewModel;
 
-public class WelcomeFragment extends Fragment {
+public class WelcomeFragment extends BaseFragment {
 
     private WellcomeViewModel mViewModel;
-    private CallBackFragment mListener;
 
     public static WelcomeFragment newInstance() {
         return new WelcomeFragment();
@@ -68,19 +68,5 @@ public class WelcomeFragment extends Fragment {
         });
     }
 
-    @Override
-    public void onAttach(@NonNull Context context) {
-        super.onAttach(context);
 
-        if (context instanceof CallBackFragment){
-            mListener= (CallBackFragment) context;
-        }
-     }
-
-
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        mListener=null;
-     }
 }
