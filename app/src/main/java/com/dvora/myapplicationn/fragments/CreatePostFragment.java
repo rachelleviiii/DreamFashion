@@ -73,7 +73,7 @@ public class CreatePostFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 String title = edtTitle.getText().toString();
-                mViewModel.createNewPost(title,getContext());
+                mViewModel.createNewPost(title, getContext());
             }
         });
     }
@@ -119,6 +119,8 @@ public class CreatePostFragment extends Fragment {
         if (requestCode == RESULT_FROM_GALLERY && resultCode == Activity.RESULT_OK) {
             mViewModel.setImageUri(data.getData());
             imagePost.setImageURI(mViewModel.getImageUri());
+
+//            new Picasso.Builder(getContext()).build().load(mViewModel.getImageUri()).centerCrop().into(imagePost);
         }
     }
 

@@ -5,9 +5,12 @@ import android.net.Uri;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
+import androidx.lifecycle.LiveData;
 
 import com.dvora.myapplicationn.entities.Post;
 import com.dvora.myapplicationn.entities.User;
+import com.dvora.myapplicationn.interfaces.PostDao;
+import com.dvora.myapplicationn.storage.DatabasePost;
 import com.dvora.myapplicationn.storage.SharePreferenceHelper;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -22,6 +25,7 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Reposetory {
     private static Reposetory instance;
@@ -29,6 +33,7 @@ public class Reposetory {
     private SharePreferenceHelper preferenceHelper;
     private String myUID;
     private StorageReference refStorage;
+    private PostDao postDao;
 
     public static Reposetory getInstance(Context context) {
         if (instance == null)
@@ -41,12 +46,20 @@ public class Reposetory {
         refStorage = FirebaseStorage.getInstance().getReference();
         preferenceHelper = SharePreferenceHelper.getInstance(context);
         myUID = preferenceHelper.getMyUID();
-
-        startListenerNewPosts();
+        postDao = DatabasePost.getInstance(context).postDao();
+        startListenerNewPostsFromFirebase();
         //TODO init DB
     }
 
-    private void startListenerNewPosts() {
+    public LiveData<List<Post>> getAllPostsLiveData() {
+        return postDao.getAllPostsLiveData();
+    }
+
+    public LiveData<List<Post>> getAllPostsLiveDataLimit(int limitPosts) {
+        return postDao.getAllPostsLiveData(limitPosts);
+    }
+
+    private void startListenerNewPostsFromFirebase() {
         long lastTimestampUpdatedPost = preferenceHelper.getLastTimestampUpdatedPost();
         myRef.child(FEED_TABLE).startAt(lastTimestampUpdatedPost).orderByChild("timestamp").addValueEventListener(new ValueEventListener() {
             @Override
@@ -59,14 +72,12 @@ public class Reposetory {
                     posts.add(post);
                 }
 
-
                 if (posts.size() > 0) {
                     long lastTimestamp = posts.get(posts.size() - 1).getTimestamp();
                     preferenceHelper.setLastTimestampUpdatedPost(lastTimestamp);
                 }
 
-                //Insert to DB
-
+                postDao.insertPost(posts);
             }
 
             @Override
@@ -109,7 +120,7 @@ public class Reposetory {
 
     public void createNewPost(String title, Uri imageUri) {
 
-        Post post = new Post(myUID, title, System.currentTimeMillis());
+        Post post = new Post(myUID, title, System.currentTimeMillis(),preferenceHelper.getUserName());
         String postKy = myRef.child(FEED_TABLE).push().getKey();
         post.setPostKey(postKy);
         myRef.child(FEED_TABLE).child(postKy).setValue(post);

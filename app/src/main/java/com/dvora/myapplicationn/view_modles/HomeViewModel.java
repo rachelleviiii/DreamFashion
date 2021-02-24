@@ -9,21 +9,24 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.dvora.myapplicationn.R;
+import com.dvora.myapplicationn.entities.Post;
+import com.dvora.myapplicationn.reposetories.Reposetory;
+
+import java.util.List;
 
 public class HomeViewModel extends AndroidViewModel {
 
-    private MutableLiveData<String> mText;
 
+    private final Reposetory reposetory;
 
     public HomeViewModel(@NonNull Application application) {
         super(application);
+        reposetory=  Reposetory.getInstance(application);
 
-        mText = new MutableLiveData<>();
-        mText.setValue(application.getResources().getString(R.string.app_name));
     }
 
 
-    public LiveData<String> getText() {
-        return mText;
+    public LiveData<List<Post>> getAllPostLiveData(){
+        return reposetory.getAllPostsLiveData();
     }
 }
