@@ -159,7 +159,7 @@ public class Reposetory {
         post.setPostKey(postKy);
         myRef.child(FEED_TABLE).child(postKy).setValue(post);
 
-        favoriteDao.insertFavoritePost(new FavoritePost(postKy));
+//        favoriteDao.insertFavoritePost(new FavoritePost(postKy));
 
         uploadImage(post.getImageUrl(), imageUri);
     }
